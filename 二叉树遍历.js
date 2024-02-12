@@ -50,6 +50,18 @@ function traversal(root, res = []) {
 
     while(stack.length) {
         const node = stack.pop();
+        
+        if (!node) {
+            res.push(stack.pop().val);
+            
+            continue;
+        }
 
+        // 右
+        node.right && stack.push(node.right);
+        // 左
+        node.left && stack.push(node.left);
+        // 中
+        stack.push();
     }
 }
